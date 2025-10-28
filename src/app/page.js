@@ -4,6 +4,7 @@
 import { useState, useEffect } from "react"
 import Link from 'next/link';
 
+
 export default function HomePage() {
 
     const [coins, setCoins] = useState([])
