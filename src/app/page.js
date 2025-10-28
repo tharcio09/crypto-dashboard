@@ -2,6 +2,7 @@
 'use client'
 
 import { useState, useEffect } from "react"
+import Link from 'next/link';
 
 export default function HomePage() {
 
@@ -42,13 +43,13 @@ export default function HomePage() {
 
     }, []);
 
-    const filteredCoins = coins.filter(coin => 
+    const filteredCoins = coins.filter(coin =>
         coin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         coin.symbol.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     let content;
-    
+
     if (loading) {
         content = <p className="text-center text-gray-400">Carregando moedas...</p>;
     } else if (error) {
@@ -61,27 +62,26 @@ export default function HomePage() {
                 <h2 className="text-xl font-semibold mb-6 text-center text-white">Top 10 Criptomoedas</h2>
                 <ul className="space-y-4">
                     {filteredCoins.map((coin, index) => (
-                        <li
-                            key={coin.id}
-                            className="flex items-center justify-between bg-gray-800 rounded-lg p-4 shadow-md"
-                        >
-                            <div className="flex items-center">
-                                <img
-                                    className="w-8 h-8 mr-3 rounded-full"
-                                    src={coin.image}
-                                    alt={coin.name}
-                                />
-                                <div>
-                                    <span className="font-medium text-white">{coin.name}</span>
-                                    <span className="ml-2 text-sm text-gray-400 uppercase">{coin.symbol}</span>
+                        <Link href={`/coin/${coin.id}`} key={coin.id}>
+                            <li className="flex items-center justify-between bg-gray-800 rounded-lg p-4 shadow-md cursor-pointer hover:bg-gray-700 transition-colors">
+                                <div className="flex items-center">
+                                    <img
+                                        className="w-8 h-8 mr-3 rounded-full"
+                                        src={coin.image}
+                                        alt={coin.name}
+                                    />
+                                    <div>
+                                        <span className="font-medium text-white">{coin.name}</span>
+                                        <span className="ml-2 text-sm text-gray-400 uppercase">{coin.symbol}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="text-right">
-                                <span className="font-semibold text-white">
-                                    ${coin.current_price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                                </span>
-                            </div>
-                        </li>
+                                <div className="text-right">
+                                    <span className="font-semibold text-white">
+                                        ${coin.current_price.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                                    </span>
+                                </div>
+                            </li>
+                        </Link>
                     ))}
                 </ul>
             </div>
@@ -93,11 +93,11 @@ export default function HomePage() {
             <div className="max-w-4xl mx-auto">
                 <h1 className="text-3xl font-bold text-center mb-10">Crypto Dashboard</h1>
                 <input
-                className="p-2 bg-gray-700 rounded text-white mb-6 w-full border border-gray-600 focus:border-indigo-500 focus:ring-indigo-500 outline-none"
-                type="text"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Buscar moeda por nome ou símbolo..."
+                    className="p-2 bg-gray-700 rounded text-white mb-6 w-full border border-gray-600 focus:border-indigo-500 focus:ring-indigo-500 outline-none"
+                    type="text"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Buscar moeda por nome ou símbolo..."
                 />
 
                 {content}
