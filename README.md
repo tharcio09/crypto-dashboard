@@ -34,7 +34,6 @@ O Crypto Dashboard é uma aplicação web desenvolvida com Next.js (App Router) 
 
 ## 📸 Screenshot
 
-*Certifique-se de que a imagem `screenshot-crypto.png` está na pasta `public` e mostra a página principal ou a de detalhes.*
 
 ![Screenshot do Crypto Dashboard](./public/screenshot-crypto.png)
 
