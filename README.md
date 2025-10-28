@@ -5,7 +5,7 @@
 
 O Crypto Dashboard é uma aplicação web desenvolvida com Next.js (App Router) que consome a API pública da CoinGecko para exibir informações atualizadas sobre criptomoedas. O projeto demonstra a busca de dados de APIs externas, gerenciamento de estado no React e a criação de interfaces dinâmicas e responsivas com Tailwind CSS.
 
-**[➡️ Acesse a versão ao vivo aqui!](https://seu-link-do-vercel-crypto.com)** *(Substitua este link após o deploy)*
+**[➡️ Acesse a versão ao vivo aqui!](https://crypto-dashboard-five-sandy.vercel.app/)**
 
 ---
 
