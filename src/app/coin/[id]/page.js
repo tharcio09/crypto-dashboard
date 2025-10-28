@@ -117,12 +117,21 @@ export default function CoinDetailsPage() {
                         </div>
                     </div>
 
-                    {coinDetails.description?.en && (
+                    {coinDetails.description?.pt && (
                         <div>
                             <h2 className="text-xl font-semibold mb-2 border-t border-gray-700 pt-4">Sobre {coinDetails.name}</h2>
                             <div
                                 className="text-gray-300 prose prose-invert max-w-none prose-a:text-indigo-400"
-                                dangerouslySetInnerHTML={{ __html: coinDetails.description.en }}
+                                dangerouslySetInnerHTML={{ __html: coinDetails.description.pt }}
+                            />
+                        </div>
+                    )}
+                    {(coinDetails.description?.pt || coinDetails.description?.en) && ( // Verifica se 'pt' OU 'en' existem
+                        <div>
+                            <h2 className="text-xl font-semibold mb-2 border-t border-gray-700 pt-4">Sobre {coinDetails.name}</h2>
+                            <div
+                                className="text-gray-300 prose prose-invert max-w-none prose-a:text-indigo-400"
+                                dangerouslySetInnerHTML={{ __html: coinDetails.description.pt || coinDetails.description.en }}
                             />
                         </div>
                     )}
